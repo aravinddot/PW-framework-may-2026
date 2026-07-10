@@ -21,6 +21,11 @@ export class CommonPage {
     }
 
 
+    async randomNumber() {
+        const num = Math.floor(Math.random() * 10000)
+        return num
+    }
+
 
 
 
