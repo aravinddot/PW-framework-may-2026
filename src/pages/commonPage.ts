@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test'
+import { Page, expect } from '@playwright/test'
 
 
 export class CommonPage {
@@ -22,11 +22,16 @@ export class CommonPage {
 
 
     async randomNumber() {
-        const num = Math.floor(Math.random() * 10000)
+        const num = Math.floor(Math.random() * 100000000)
         return num
     }
 
 
-
+    async verifyHeader(headers: string[]) {
+        await this.page.locator('.rzi-circle-o-notch').waitFor({state: 'detached', timeout: 60000})
+        for(const header of headers) {
+            await expect(this.page.locator('thead th').getByText(header)).toBeVisible()
+        }
+    }
 
 }
