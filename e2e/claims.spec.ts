@@ -15,6 +15,11 @@ test.describe('Claims Page Tests', () => {
         await claimsPage.verifyHeader(claimsPageHeader)
     })
 
+    test('Verify the user can able to filer the column values', async()=> {
+        test.setTimeout(120000)
+        await claimsPage.verifyFilteredValues()
+    })
+
 
 
 })
